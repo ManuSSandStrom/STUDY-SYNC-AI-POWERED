@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync - AI-Powered Study Planner for PG Students</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>StudySync - AI-Powered Study Planner</h1>
+        <h3>For MCA & MBA Students at MITS</h3>
+    </header>
+
+    <!-- Study Plan Form -->
+    <section class="study-form">
+        <h2>Enter Your Study Details</h2>
+        <form id="studyForm">
+            
+            <!-- Branch Selection -->
+            <label for="branch">Select Your Branch:</label>
+            <select id="branch">
+                <option value="MCA">MCA</option>
+                <option value="MBA">MBA</option>
+            </select>
+
+            <!-- Subject Selection -->
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" list="subjectList" required>
+            <datalist id="subjectList">
+                <!-- MCA Subjects -->
+                <option value="Java Programming (JAVA)">
+                <option value="Computer Networks and Security (CNS)">
+                <option value="Artificial Intelligence (AI)">
+                <option value="Software Engineering (SE)">
+                <option value="Machine Learning (ML)">
+                <option value="Cyber Security (CS)">
+                <option value="Cloud Computing (CC)">
+                <option value="Research Methodology and IPR (RM)">
+
+                <!-- MBA Subjects -->
+                <option value="Business Analytics">
+                <option value="Financial Management">
+                <option value="Marketing Management">
+                <option value="Production and Operations Management">
+                <option value="Human Resource Management">
+                <option value="Business Research and Econometrics">
+            </datalist>
+
+            <!-- Exam Details -->
+            <label for="examDate">Exam Date:</label>
+            <input type="date" id="examDate" required>
+
+            <label for="examMarks">Exam Marks:</label>
+            <input type="number" id="examMarks" min="10" max="100" required>
+
+            <label for="examDuration">Exam Duration (hours):</label>
+            <input type="number" id="examDuration" min="1" max="3" required>
+
+            <!-- Priority -->
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <button type="submit">Generate Study Plan</button>
+        </form>
+    </section>
+
+    <!-- Study Plan Display -->
+    <section class="study-plan">
+        <h2>Your Study Plan</h2>
+        <table id="studyPlanTable">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Exam Date</th>
+                    <th>Exam Marks</th>
+                    <th>Exam Duration</th>
+                    <th>Priority</th>
+                    <th>Suggested Study Time</th>
+                    <th>Suggested Revision Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="studyPlanList">
+                <!-- Study Plan Items will be added dynamically -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- AI Guidance Section for MCA -->
+    <section class="ai-guidance">
+        <h2>AI-Powered Exam Writing Guidance (MCA)</h2>
+        <p>Click on an MCA subject below to get a detailed strategy for writing answers based on exam marks and subject type.</p>
+        <div id="guidanceContainer">
+            <ul>
+                <li><button onclick="openAIHelp('Java Programming')">Java Programming</button></li>
+                <li><button onclick="openAIHelp('Computer Networks and Security')">Computer Networks</button></li>
+                <li><button onclick="openAIHelp('Artificial Intelligence')">Artificial Intelligence</button></li>
+                <li><button onclick="openAIHelp('Software Engineering')">Software Engineering</button></li>
+                <li><button onclick="openAIHelp('Machine Learning')">Machine Learning</button></li>
+                <li><button onclick="openAIHelp('Cyber Security')">Cyber Security</button></li>
+                <li><button onclick="openAIHelp('Cloud Computing')">Cloud Computing</button></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- AI Guidance Section for MBA -->
+    <section class="ai-guidance">
+        <h2>AI-Powered Exam Writing Guidance (MBA)</h2>
+        <p>Click on an MBA subject below to get a detailed strategy for writing answers based on exam marks and subject type.</p>
+        <div id="guidanceContainer">
+            <ul>
+                <li><button onclick="openAIHelp('Business Analytics')">Business Analytics</button></li>
+                <li><button onclick="openAIHelp('Financial Management')">Financial Management</button></li>
+                <li><button onclick="openAIHelp('Marketing Management')">Marketing Management</button></li>
+                <li><button onclick="openAIHelp('Production and Operations Management')">Production & Operations</button></li>
+                <li><button onclick="openAIHelp('Human Resource Management')">Human Resource Management</button></li>
+                <li><button onclick="openAIHelp('Business Research and Econometrics')">Business Research</button></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Difficult Topic AI Help Section -->
+    <section class="ai-topic-help">
+        <h2>Need Help with a Difficult Topic?</h2>
+        <p>Enter the topic name and subject to get AI-powered guidance instantly.</p>
+        <input type="text" id="topicName" placeholder="Enter Topic Name" required>
+        <input type="text" id="topicSubject" list="subjectList" placeholder="Enter Subject Name" required>
+        <button onclick="openAITopicHelp()">Get AI Help</button>
+    </section>
+
+    <!-- Pending & Completed Sections -->
+<section class="progress">
+    <div class="pending">
+        <h2 id="pendingTitle">Pending Topics (0)</h2>
+        <ul id="pendingList"></ul>
+    </div>
+    <div class="completed">
+        <h2 id="completedTitle">Completed Topics (0)</h2>
+        <ul id="completedList"></ul>
+    </div>
+</section>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Created by <strong>MANOHAR .B</strong> - MCA PROFESSIONAL</p>
+    </footer>
+
+    <script>
+        function openAIHelp(subject) {
+            let prompt = `I need help with writing answers for my ${subject} exam. Please provide structured guidance based on the subject, including definitions, examples, diagrams (if applicable), and key points to score well.`;
+            let chatGPTURL = `https://chat.openai.com/?q=${encodeURIComponent(prompt)}`;
+            window.open(chatGPTURL, "_blank");
+        }
+
+        function openAITopicHelp() {
+            let topic = document.getElementById("topicName").value.trim();
+            let subject = document.getElementById("topicSubject").value.trim();
+
+            if (topic === "" || subject === "") {
+                alert("Please enter both topic and subject name.");
+                return;
+            }
+
+            let prompt = `Explain the topic '${topic}' in the subject '${subject}' in detail with examples, diagrams (if applicable), key points, and best way to write in an exam.`;
+            let chatGPTURL = `https://chat.openai.com/?q=${encodeURIComponent(prompt)}`;
+            window.open(chatGPTURL, "_blank");
+        }
+    </script>
+<script src="script.js"></script> <!-- Add this line -->
+</body>
+</html>
+
