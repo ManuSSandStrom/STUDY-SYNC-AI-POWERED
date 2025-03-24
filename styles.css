@@ -323,7 +323,64 @@ footer {
     .study-plan {
         max-width: 90%;
     }
+
 }
+/* Ensure input field styling remains consistent */
+input[list] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Improve visibility of the datalist dropdown */
+datalist {
+    background: white;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    padding: 5px;
+}
+
+/* Ensure dropdown suggestions are easily readable */
+option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Highlight input field when focused */
+input[list]:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Ensure saved info dropdown is visible */
+input[list]::-webkit-calendar-picker-indicator {
+    display: none !important;
+}
+
 #studyPlanList {
     visibility: visible;
+}
+/* Style for the subject input field */
+#subject {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Highlight subject input when focused */
+#subject:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
+
+/* Datalist styling */
+datalist option {
+    font-size: 16px;
+    padding: 5px;
 }

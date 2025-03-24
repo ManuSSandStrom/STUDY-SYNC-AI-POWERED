@@ -3,6 +3,58 @@ const studyForm = document.getElementById("studyForm");
 const studyPlanList = document.getElementById("studyPlanList");
 const pendingList = document.getElementById("pendingList");
 const completedList = document.getElementById("completedList");
+// Select branch and subject elements
+const branchSelect = document.getElementById("branch");
+const subjectList = document.getElementById("subjectList");
+
+// Define subjects for MCA and MBA
+const subjects = {
+    MCA: [
+        "Java Programming (JAVA)",
+        "Computer Networks and Security (CNS)",
+        "Artificial Intelligence (AI)",
+        "Software Engineering (SE)",
+        "Machine Learning (ML)",
+        "Cyber Security (CS)",
+        "Cloud Computing (CC)",
+        "Research Methodology and IPR (RM)"
+    ],
+    MBA: [
+        "Business Analytics",
+        "Financial Management",
+        "Marketing Management",
+        "Production and Operations Management",
+        "Human Resource Management",
+        "Business Research and Econometrics"
+    ]
+};
+
+// Function to update subject options based on branch selection
+function updateSubjects() {
+    let branch = document.getElementById("branch").value;
+    let subjectList = document.getElementById("subjectList");
+
+    // Clear existing options
+    subjectList.innerHTML = "";
+
+    // Populate new subject options
+    subjects[branch].forEach(subject => {
+        let option = document.createElement("option");
+        option.value = subject;
+        subjectList.appendChild(option);
+    });
+
+    // Ensure the input field can utilize saved info (Auto-Fill)
+    document.getElementById("subject").setAttribute("autocomplete", "on");
+    document.getElementById("topicSubject").setAttribute("autocomplete", "on");
+}
+
+// Attach event listener to branch selection dropdown
+document.getElementById("branch").addEventListener("change", updateSubjects);
+
+// Initialize subjects on page load
+document.addEventListener("DOMContentLoaded", updateSubjects);
+
 
 // Load stored study plans on page load
 document.addEventListener("DOMContentLoaded", function () {
