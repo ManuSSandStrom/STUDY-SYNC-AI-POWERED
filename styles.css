@@ -484,3 +484,9 @@ datalist option {
         width: 100%;
     }
 }
+.color{
+    color: #007bff;
+}
+.reference-books{
+    text-align: center;
+}
