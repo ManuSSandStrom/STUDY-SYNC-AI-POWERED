@@ -233,3 +233,36 @@ function getExamGuidance(subject, marks) {
 
     alert(guidance);
 }
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    let loginId = document.getElementById("loginId").value.toUpperCase().trim();
+    let password = document.getElementById("password").value.trim();
+    let errorMessage = document.getElementById("error-message");
+
+    // Regex pattern for Student Login IDs (24691F00A0 - 24691F00X3)
+    let studentPattern = /^24691F00([A-W][0-9]|X[0-3])$/;
+
+    // Faculty Login Details
+    let facultyLoginId = "123";
+    let facultyPassword = "password";
+
+    // Check for Student Login
+    if (studentPattern.test(loginId) && password === "MANU") {
+        alert("Student Login Successful!");
+        document.body.classList.add("after-login"); // Change background after login
+        document.querySelector(".login-container").classList.add("hidden"); // Hide login box
+
+    // Check for Faculty Login
+    } else if (loginId === facultyLoginId && password === facultyPassword) {
+        alert("Faculty Login Successful!");
+        document.body.classList.add("after-login");
+        document.querySelector(".login-container").classList.add("hidden"); 
+
+    // Invalid Login
+    } else {
+        errorMessage.textContent = "Invalid Login ID or Password!";
+        errorMessage.style.color = "red";
+    }
+});
+

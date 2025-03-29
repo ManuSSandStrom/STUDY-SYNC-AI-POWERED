@@ -490,3 +490,73 @@ datalist option {
 .reference-books{
     text-align: center;
 }
+/* Login Page Styling */
+/* Login Container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: #000814;  /* Dark Blue */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Login Header */
+.login-container h2 {
+    color: #00b4d8;
+}
+
+/* Input Fields */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #0077b6;
+    border-radius: 5px;
+    background: #001d3d;
+    color: white;
+}
+
+/* Login Buttons */
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #0096c7;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Button Hover Effect */
+.login-container button:hover {
+    background: #0077b6;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Hide Login Container After Successful Login */
+.hidden {
+    display: none;
+}
+
+/* After Login - Show Website Background */
+.after-login {
+    background: white !important;
+    color: black;
+}
+.align{
+    text-align: justify;
+}
