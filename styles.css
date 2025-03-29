@@ -384,3 +384,103 @@ datalist option {
     font-size: 16px;
     padding: 5px;
 }
+/* Syllabus & Reference Section Styles */
+.syllabus-reference-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px 0;
+}
+
+.syllabus-reference-container h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.syllabus-reference-container p {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.syllabus-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.syllabus-buttons button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.syllabus-buttons button:hover {
+    background: #0056b3;
+}
+
+.reference-books-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    text-align: left;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.reference-section {
+    width: 45%;
+    min-width: 300px;
+    text-align: center;
+}
+
+.reference-section h3 {
+    color: #343a40;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+.reference-books ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reference-books li {
+    background: #ffffff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.reference-books li:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .syllabus-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .reference-books-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .reference-section {
+        width: 100%;
+    }
+}
